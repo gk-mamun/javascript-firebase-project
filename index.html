@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Zone</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container">
+        <a class="navbar-brand text-white" href="index.html">API ZONE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+           
+        </ul>
+        <ul class="d-flex navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item me-3 logged-in" style="display: none;">
+                <a class="nav-link text-white" href="index.html">Home</a>
+            </li>
+            <li class="nav-item me-3 logged-in" style="display: none;">
+                <a class="nav-link text-white" href="#" data-bs-toggle="modal" data-bs-target="#createModal">Create</a>
+            </li>
+            <li class="nav-item me-4 logged-in" style="display: none;">
+                <a class="nav-link text-white" href="account.html">My Account</a>
+            </li>
+            <li class="nav-item logged-in" style="display: none;">
+                <a class="nav-link primry-btn bg-primary" href="#" id="logout-btn">Logout</a>
+            </li>
+            <li class="nav-item logged-out" style="display: none;">
+                <a class="nav-link primry-btn bg-primary" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+            </li>
+        </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Banner section -->
+    <div id="banner" class="container-fluid">
+        <div class="banner-layer">
+            <div class="banner-content">
+                <h1>API ZONE FOR DEVELOPERS</h1>
+                <p>A site where you will get api for you next project</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content section -->
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="category-div b-r-5 p-3">
+                        <ul class="list-group category-list" id="category-list">
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8" id="apis-container">
+                    <!-- show api detail list here -->
+                    <!-- <div class="card pt-4 pb-4 b-r-5 box-shadow mb-5">
+                        <div class="card-body">
+                            <h5 class="card-title">API Title</h5>
+                            <p class="card-text mb-4">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="bg-primary secondary-btn" data-bs-toggle="modal" data-bs-target="#apiDetailModal">View Detail</a>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Login Modal -->
+    <div class="modal fade pt-5" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog pt-5">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+                    <button type="button" class="btn-close modal-close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-5 pb-5">
+                    <h2>Login</h2>
+                    <div id="login-alert"></div>
+                    <div id="login-alert-div"></div>
+                    <form id="login-form" class="mt-5 mb-5">
+                        <div class="form-group mb-4">
+                            <input id="login-email" type="text" class="form-control" placeholder="email">
+                        </div>
+                        <div class="form-group">
+                            <input id="login-password" type="password" class="form-control" placeholder="password">
+                        </div>
+                        <div class="mt-5" style="text-align: right;">
+                            <input type="submit" class="bg-primary secondary-btn" value="Login">
+                        </div>
+                    </form>
+                    <p>Don't have an account? <a href="register.html" class="color-primary ">Register here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Api Detail Modal -->
+    <div class="modal fade pt-5" id="apiDetailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog pt-5">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+                    <button type="button" class="btn-close modal-close-btn" id="detail-modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <img src="img/banner.jpg" class="img-fluid" alt="Responsive image" id="api-thumbnail">
+                    <div class="p-3">
+                        <div class="card p-4 b-r-5" style="margin-top: -80px;">
+                            <div class="card-body text-black">
+                                <h5 class="card-title" id="api-title">API title</h5>
+                                <p class="card-text" id="api-detail">Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <div class="mt-5">
+                                    <a href="" class="bg-primary secondary-btn me-4" id="api-website" target="_blank">Website</a>
+                                    <a href="#" class="bg-dark secondary-btn me-1" target="_blank" id="api-tutorial">Tutorial</a>
+                                    <a href="#" class="secondary-btn text-black" target="_blank" id="api-github">Github</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create API Modal -->
+    <div class="modal fade pt-5" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+                    <button type="button" class="btn-close modal-close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-5 pb-5">
+                    <h2>Enter API Detail</h2>
+                    <form class="mt-5 mb-5" id="create-api-form">
+                        <div class="form-group mb-4">
+                            <input id="title" type="text" class="form-control" placeholder="api name/title" required>
+                        </div>
+                        <div class="form-group mb-4">
+                            <input id="thumbnail-url" type="text" class="form-control" placeholder="api thumbnail url" required>
+                        </div>
+                        <div class="form-group mb-4">
+                            <select class="form-control" id="category-select-list" required>
+                                <!-- show category list from firestore -->
+                            </select>
+                        </div>
+                        <div class="form-group mb-4">
+                            <input id="website-url" type="text" class="form-control" placeholder="api website url" required>
+                        </div>
+                        <div class="form-group mb-4">
+                            <input id="github-link" type="text" class="form-control" placeholder="github link (optional)">
+                        </div>
+                        <div class="form-group mb-4">
+                            <input id="tutorial-link" type="text" class="form-control" placeholder="external tutorial link (optional)">
+                        </div>
+                        <div class="form-group mb-4">
+                           <textarea id="description" cols="30" rows="5" class="form-control" placeholder="description" required></textarea>
+                        </div>
+                        <div class="mt-5" style="text-align: right;">
+                            <input type="submit" class="bg-primary secondary-btn" value="Create">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid bg-dark pt-4 pb-2">
+        <p class="text-center">Copyright &copy; 2021 | API ZONE</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyDqVtdsDdLRFChQ5oskxdUHuWAhW1J3YrE",
+            authDomain: "javascript-project-c3581.firebaseapp.com",
+            databaseURL: "https://javascript-project-c3581.firebaseio.com",
+            projectId: "javascript-project-c3581",
+            storageBucket: "myapp-project-123.appspot.com",
+            messagingSenderId: "65211879809",
+            appId: "1:297945778931:web:c7d1d0cc09e099d3924586",
+            measurementId: "G-FW0BWQ9S0B"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // make and firestore reference 
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+    </script>
+    <script src="js/auth.js"></script>
+    <script src="js/categories.js"></script>
+    <script src="js/apis.js"></script>
+</body>
+</html>

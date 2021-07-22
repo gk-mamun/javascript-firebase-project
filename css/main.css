@@ -1,0 +1,128 @@
+:root {
+    --black: #000;
+    --white: #fff;
+    --primary-color: #6435C9;
+    --gray-color: #808080;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.bg-dark {
+    background-color: var(--black) !important;
+    color: var(--white) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+    color: var(--white) !important;
+}
+
+.bg-gray {
+    background-color: var(--gray-color) !important;
+    color: var(--white) !important;
+}
+
+.text-white {
+    color: var(--white) !important;
+}
+
+.text-black {
+    color: var(--black) !important;
+}
+
+.primry-btn {
+    padding: 0.3rem 2rem 0.5rem 2rem !important;
+    font-size: 18px !important;
+    border-radius: 5px;
+    border: none;
+}
+
+.color-primary {
+    color: var(--primary-color);
+}
+
+.secondary-btn {
+    padding: 0.3rem 1rem 0.5rem 1rem !important;
+    font-size: 16px !important;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.box-shadow {
+    box-shadow: 0px 9px 8px -6px rgba(0,0,0,0.67);
+}
+
+main .container {
+    padding: 100px 0px !important;
+}
+
+.b-r-5 {
+    border-radius: 5px;
+}
+
+.modal-close-btn {
+    background-color: #fff;
+    border-radius: 50%;
+    background-size: 12px;
+    padding: 0.25em !important;
+}
+#banner {
+    height: 300px;
+    background: url('../img/banner.jpg');
+    background-size: cover;
+    position: relative;
+}
+
+#banner .banner-layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#banner .banner-content {
+    color: var(--white);
+}
+
+.category-div {
+    background-color: var(--black);
+    min-height: 400px;
+    width: 80%;
+}
+
+.category-list .list-group-item {
+    border-bottom-color: var(--white);
+}
+
+#edit-category-form,
+#edit-api-form-div {
+    display: none;
+}
+
+
+/* Modal */
+.modal-header {
+    padding: 0.8rem 1rem;
+    border-bottom: 0px;
+}
+
+.modal-content {
+    border-radius: 10px !important;
+}
+
+.modal-body {
+    background-color: Var(--black);
+    color: var(--white);
+    padding: 2rem;
+}
