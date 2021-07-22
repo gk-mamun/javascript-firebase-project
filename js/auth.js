@@ -49,8 +49,8 @@ if (registerForm != null) {
 const logout = document.querySelector("#logout-btn");
 logout.addEventListener('click', (e) => {
     e.preventDefault();
-
     auth.signOut();
+    window.location.href = "http://127.0.0.1:5500/index.html";
 })
 
 

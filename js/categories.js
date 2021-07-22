@@ -83,6 +83,8 @@ if (createCategoryForm != null) {
         }).then(() => {
             categoryAlertBox.innerHTML = '<div class="alert alert-success">Successfully Created!</div>' ;
             createCategoryForm.reset();
+        }).catch(err => {
+            categoryAlertBox.innerHTML = '<div class="alert alert-danger">' + err.message + '</div>' ;
         })
     })
 }
@@ -156,3 +158,4 @@ const manageUserUI = (user) => {
         loggedOutContent.style.display = "block";
     }
 }
+
